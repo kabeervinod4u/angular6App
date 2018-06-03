@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="logindbModelStoreContainer" CdmEntityContainer="logindbEntities">
+    <EntitySetMapping Name="Registrations">
+      <EntityTypeMapping TypeName="logindbModel.Registration">
+        <MappingFragment StoreEntitySet="Registration">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_InsertRegistration" FunctionName="logindbModel.Store.Sp_InsertRegistration" />
+    <FunctionImportMapping FunctionImportName="sp_validEmailId" FunctionName="logindbModel.Store.sp_validEmailId" />
+  </EntityContainerMapping>
+</Mapping>

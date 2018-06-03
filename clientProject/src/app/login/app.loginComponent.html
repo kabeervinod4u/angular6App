@@ -1,0 +1,27 @@
+<div class="form-group">
+    <div class="form-row col-lg-6">
+    <label for="email">Email address:</label>
+    <input type="email" class="form-control" id="email" [(ngModel)]='data.username'>
+  </div>
+</div>
+  <div class="form-group">
+        <div class="form-row col-lg-6">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control" id="pwd" [(ngModel)]='data.Password'>
+  </div>
+  </div>
+  <button  class="btn btn-default" (click)="login()">login</button>
+<label>For new user register here</label>
+  <a href="register">Register</a>
+
+  <br/>
+
+  <label style="color:red"> {{errorr}}</label>
+  <!-- <mat-checkbox
+
+  >clickhere</mat-checkbox> -->
+  <!-- <div *ngIF="showdetails.checked">so..</div> -->
+  <!-- <mat-checkbox #ShowDetails>werwerwe</mat-checkbox> -->
+    <!-- <div *ngIF="ShowDetails.checked">so..</div> -->
+
+  

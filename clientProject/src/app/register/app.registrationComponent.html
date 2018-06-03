@@ -1,0 +1,141 @@
+ 
+<!-- <div class="form-group">
+    <label for="firstName" class="col-sm-2 control-label" >U2ser Name:</label>
+    <div class="col-sm-6">
+        <input type="text" name="firstName" class="form-control" id="firstName" placeholder="First Name" [(ngModel)]='data.UserName' required> 
+    </div>
+</div> -->
+ 
+<!-- <div class="form-group">
+<label for="lastName" class="col-sm-2 control-label">Last Name:</label>
+<div class="col-sm-6">
+<input type="text" name="lastName" class="form-control" id="lastName"  placeholder="Last Name" [(ngModel)]='data.lastName'>
+</div>
+</div> -->
+ 
+<!-- <div class="form-group">
+<label for="" class="col-sm-2 control-label" >Gender:</label>
+<div class="col-sm-6">
+<label class="radio-inline">
+<input type="radio" name="gender" id="gender1" value="male"[(ngModel)]='data.gender'>Male
+</label>
+<label class="radio-inline">
+<input type="radio" name="gender" id="gender2" value="female" [(ngModel)]='data.gender'>Female
+</label>
+ 
+</div>
+</div> -->
+ 
+<!-- <div class="form-group">
+<label for="dob" class="col-sm-2 control-label">DOB:</label>
+<div class="col-sm-6">
+<input type="text" name="dob" class="form-control datepicker" id="dob" placeholder=" Date of Birth" [(ngModel)]='data.dob'>
+</div>
+</div> -->
+<!--  
+<div class="form-group">
+    <label for="userName" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-6">
+    <input type="email" name="email" class="form-control" id="userName" placeholder="User Name" [(ngModel)]='data.EmailId' required>
+    </div>
+</div>
+ 
+<div class="form-group">
+    <label for="passwd" class="col-sm-2 control-label">Password:</label>
+    <div class="col-sm-6">
+    <input type="password" name="passwd" class="form-control" id="passwd" placeholder="Password" [(ngModel)]='data.Password' required>
+    </div>
+</div>
+ 
+<div class="form-group">
+    <button  class="btn btn-primary" id="register" (click)="register()">Register</button>
+</div> -->
+
+
+<!-- //my new -->
+<!-- (ngSubmit)="addPost(rForm.value)" -->
+    <form [formGroup]="rForm"  (ngSubmit)="addPost(rForm.value)">
+      <div class="form-container">
+       
+          <h1>My Reactive Form</h1>
+
+          <div class="row">
+            <label>Name
+                <input type="text"  formControlName="UserName" [(ngModel)]="data.UserName">
+              </label>
+              
+          </div>
+          <div class="alert" *ngIf="!rForm.controls['UserName'].valid && rForm.controls['UserName'].touched">{{ titleAlert }}</div>
+          
+         
+        <div class="row">
+            <label>Password
+                    <input type="text" name="Password"formControlName="Password" [(ngModel)]="data.Password">
+                
+            </label>
+            
+          </div>
+          <div class="alert" *ngIf="!rForm.controls['Password'].valid && rForm.controls['Password'].touched">{{ titleAlert }}</div>
+          
+          
+  <div class="row">
+          <label>EmailId
+            <input #email type="text" name="email" (keydown.enter)="checkmail(email.value)" formControlName="EmailId"  [(ngModel)]="data.EmailId">
+          </label>
+          
+        </div>
+        <div class="alert"  *ngIf="!rForm.controls['EmailId'].valid && rForm.controls['EmailId'].touched">{{ titleAlert }}</div>
+        
+  <div class="row">
+    <input type="checkbox" name="validate" formControlName="validate" value="1"> On
+
+  </div>
+  <div class="alert" *ngIf="isvlidmail=== 'false' ">Email already exits!</div>
+  
+          
+          <input type="submit" class="button expanded" value="Submit Form"  [disabled]="!rForm.valid">
+       
+  
+      </div>
+    </form>
+  
+  <!-- <ng-template #forminfo>
+    <div class="form-container">
+      <div class="row columns">
+          <h1>{{ name }}</h1>
+  
+          <p>{{ description }}</p>
+      </div>
+    </div>
+  </ng-template> -->
+<!-- //my new end-->
+
+
+
+
+<!-- //kendogridstart -->
+
+<h2>Product List - </h2>
+
+<p *ngIf=!data><em>loading.......</em></p>
+<div class="col-sm-12">
+
+        <kendo-grid [data]="kendoData" [selectable]="true" (selectionChange)="onStateChange($event)" [height]="410" *ngIf="data">
+            <kendo-grid-column field="Id" title="ID" width="40">
+            </kendo-grid-column>
+            <kendo-grid-column field="UserName" title="UserName" width="80">
+            </kendo-grid-column>
+            <kendo-grid-column field="Password" title="Password" width="80">
+            </kendo-grid-column>
+            <kendo-grid-column field="EmailId" title="EmailId" width="80">
+            </kendo-grid-column>
+            <kendo-grid-column field="CreatedOn" title="CreatedOn" width="80">
+            </kendo-grid-column>
+            <!-- <kendo-grid-column field="Discontinued" title="Discontinued" width="120">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    <input type="checkbox" [checked]="dataItem.Discontinued" disabled/>
+                </ng-template>
+            </kendo-grid-column> -->
+        </kendo-grid>
+ 
+    </div>
